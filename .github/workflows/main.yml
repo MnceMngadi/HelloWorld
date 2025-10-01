@@ -1,0 +1,40 @@
+# .github/workflows/android-ci.yml
+name: CI
+
+# ----------------------------------------------------------------------
+# 1. Trigger
+# Defines when the workflow should run
+# ----------------------------------------------------------------------
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# ----------------------------------------------------------------------
+# 2. Jobs
+# The main processes that will be executed
+# ----------------------------------------------------------------------
+jobs:
+  build:
+    name: Build, Lint, and Test
+    # The type of machine to run the job on
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the code from the repository
+      - uses: actions/checkout@v2
+
+      # Runs a single command using the runner shell
+      - name: Run a one-line script
+        run: echo Hello, world!
+
+      # Step 2: Multi line runner shell
+      - name: Run a multi-line script
+        run: |
+          echo Add other actions to build,
+          echo test, and deploy your project
+          
