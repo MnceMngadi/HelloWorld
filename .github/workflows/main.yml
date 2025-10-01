@@ -74,9 +74,7 @@ jobs:
 
       # Step 7: Upload the APK as a workflow artifact
       - name: Upload Debug APK
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4 # ✅ Use the latest version
         with:
           name: debug-apk
           path: app/build/outputs/apk/debug/app-debug.apk
-          # Optional: Specify a retention period for the artifact
-          # retention-days: 7
