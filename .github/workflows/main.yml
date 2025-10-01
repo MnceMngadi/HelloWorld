@@ -59,13 +59,6 @@ jobs:
       - name: Grant execute permissions for gradlew
         run: chmod +x gradlew
 
-      # Step 5: Run unit tests (with exclusion)
-      - name: Run unit tests (Skipped)
-        # The 'assembleDebug' command is sufficient to build the APK.
-        # However, if you had a command like 'check assembleDebug'
-        # which depends on tests, you'd use the exclude option.
-        run: ./gradlew clean assembleDebug --exclude-task testDebug
-
       # ----------------------------------------------------------------
       # NEW STEPS FOR BUILDING AND ARTIFACT UPLOAD
       # ----------------------------------------------------------------
