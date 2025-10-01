@@ -1,5 +1,5 @@
-# .github/workflows/android-ci.yml
-name: CI
+   # .github/workflows/android-ci.yml
+name: Run Test
 
 # ----------------------------------------------------------------------
 # 1. Trigger
@@ -37,4 +37,9 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project
-          
+
+      - name: Grant execute permissions for gradlew
+        run: chmod +x gradlew
+
+      - name: Run unit tests
+        run: ./gradlew clean testDebug
