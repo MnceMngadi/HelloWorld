@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.addpayafrica.helloworld"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.addpayafrica.helloworld"
