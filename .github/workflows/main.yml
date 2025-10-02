@@ -36,26 +36,7 @@ jobs:
           distribution: 'temurin'
           cache: 'gradle'
 
-      # Step 3: Cache Gradle files to speed up subsequent runs
-      - name: Cache Gradle
-        uses: actions/cache@v3
-        with:
-          path: |
-            ~/.gradle/caches
-            ~/.gradle/wrapper
-          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
-          restore-keys: |
-            ${{ runner.os }}-gradle-
-
-      - name: Run a one-line script
-        run: echo Hello, world!
-
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project
-
-      # Step 4: Grant execute permissions for gradlew
+      # Step 3: Grant execute permissions for gradlew
       - name: Grant execute permissions for gradlew
         run: chmod +x gradlew
 
