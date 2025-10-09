@@ -47,16 +47,15 @@ jobs:
           distribution: 'temurin'
           cache: 'gradle'
 
-      # Step 3: Grant execute permissions for gradlew
+          # Step 3: Grant execute permissions for gradlew
       - name: Grant execute permissions for gradlew
         run: chmod +x gradlew
-          
-          # Step 4: Run Android Lint Checks
-          # This runs the lint tool against the debug build variant.
-          # It will fail the build if lint finds any issues configured as errors.
-         - name: Run Android Lint Checks
-          run: ./gradlew lintDebug
-            
+
+      # Step 4: Run Android Lint Checks
+      # This runs the lint tool against the debug build variant.
+      # It will fail the build if lint finds any issues configured as errors.
+      - name: Run Android Lint Checks  <-- This line (and its 'run' child) needs correct indentation
+        run: ./gradlew lintDebug
             # ----------------------------------------------------------------
             # NEW STEP 4: Inject Version Code
             # ----------------------------------------------------------------
