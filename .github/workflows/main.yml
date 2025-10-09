@@ -50,6 +50,12 @@ jobs:
       # Step 3: Grant execute permissions for gradlew
       - name: Grant execute permissions for gradlew
         run: chmod +x gradlew
+          
+          # Step 4: Run Android Lint Checks
+          # This runs the lint tool against the debug build variant.
+          # It will fail the build if lint finds any issues configured as errors.
+         - name: Run Android Lint Checks
+          run: ./gradlew lintDebug
 
       # ----------------------------------------------------------------
       # NEW STEPS FOR BUILDING AND ARTIFACT UPLOAD
