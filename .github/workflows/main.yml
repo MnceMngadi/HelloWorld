@@ -56,6 +56,27 @@ jobs:
           # It will fail the build if lint finds any issues configured as errors.
          - name: Run Android Lint Checks
           run: ./gradlew lintDebug
+            
+            # ----------------------------------------------------------------
+            # NEW STEP 4: Inject Version Code
+            # ----------------------------------------------------------------
+                 - name: Inject Version Code (Set versionCode from CI run number)
+            # Use the CI run number (a monotonically increasing integer) for versionCode
+                 run: |
+                   # The Android versionName should be manually updated in build.gradle
+                   # The CI run number will be the versionCode
+                   echo "CI Run Number: ${{ github.run_number }}"
+                   
+                   # The sed command finds the 'versionCode' line and replaces its value
+                   # with the current GitHub Run Number. This requires your versionCode
+                   # to be set as a simple integer in your app/build.gradle.
+                   sed -i "s/versionCode [0-9]*/versionCode ${{ github.run_number }}/" app/build.gradle
+                   
+                   # Optional: Log the updated file content to verify the change
+                   echo "--- app/build.gradle content after version bump ---"
+                   cat app/build.gradle | grep 'versionCode'
+                   echo "------------------------------------------------------"
+            # ----------------------------------------------------------------
 
       # ----------------------------------------------------------------
       # NEW STEPS FOR BUILDING AND ARTIFACT UPLOAD
