@@ -7,9 +7,18 @@ name: Run Test and Build APK
 # ----------------------------------------------------------------------
 on:
   push:
-    branches: [master]
-  pull_request_target:
-    branches: [master]
+    # Target only the main/develop branches when code is pushed directly
+    branches:
+      - main
+      - staging
+    pull_request:
+      # Target specific long-lived branches (main, develop)
+      # AND any branch matching the glob pattern (e.g., feature/login, bugfix/crash)
+      branches:
+        - main
+        - staging
+        - 'gh-actions/*' # Trigger for PRs from any feature branch
+        - 'bugfix/*'  # Trigger for PRs from any bugfix branch
   
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
