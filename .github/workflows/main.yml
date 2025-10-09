@@ -53,8 +53,7 @@ jobs:
 
       # Step 4: Run Android Lint Checks
       # This runs the lint tool against the debug build variant.
-      # It will fail the build if lint finds any issues configured as errors.
-      - name: Run Android Lint Checks  <-- This line (and its 'run' child) needs correct indentation
+      - name: Run Android Lint Checks
         run: ./gradlew lintDebug
             # ----------------------------------------------------------------
             # NEW STEP 4: Inject Version Code
