@@ -7,9 +7,9 @@ name: Run Test and Build APK
 # ----------------------------------------------------------------------
 on:
   push:
-    branches: [ staging ]
+    branches: [master]
   pull_request_target:
-    branches: [ staging ]
+    branches: [master]
   
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
